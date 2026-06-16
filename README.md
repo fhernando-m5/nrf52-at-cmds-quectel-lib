@@ -33,3 +33,19 @@ The project provides a structured way to interface with cellular modems, specifi
 A minimal example of initializing the library and sending an AT command can be found in `quectel_at_cmds/main.c`.
 
 The main API definitions for cellular and MQTT operations are located in `quectel_at_cmds.h`.
+
+---
+
+## Sequence Diagram: Quectel SIM Test Execution Flow
+
+This diagram illustrates the initialization and task execution flow of the `main_app_quectel_sim_test.c` example.
+
+Diagram Summary:
+*    **Initialization:** Shows main() setting up the SIM module and Quectel shared data before spawning the FreeRTOS tasks.
+*    **QUECTEL_MAIN Task:** Illustrates the periodic execution of the modem state machine (handling connections and MQTT).
+*    **QUECTEL_PUB Task:** Shows the data publishing loop that sends payloads to the MQTT broker.
+*    **SIM_Task:** Displays the module processing logic, which only executes once a broker connection is established.
+
+### OPEN IMAGE: [Seq_Diagram_Quectel_Comm](https://github.com/fhernando-m5/nrf52-at-cmds-quectel-lib/blob/main/imgs/Seq_Diagram_Quectel_Comm.svg?raw=1)
+
+![Imagen de Seq_Diagram_Quectel_Comm](imgs/Seq_Diagram_Quectel_Comm.svg?raw=1 "Seq_Diagram_Quectel_Comm")
